@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        th {
+            text-align: left;
+        }
+
+        div#a {
+            background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(0, 85, 255));
+            border-color: red;
+            border-radius: 5px;
+            border: 2px;
+            border-style: solid;
+        }
+
+        td {
+            color: green;
+        }
+    </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        var ob = {
+            name: "Pavan Varma",
+            education: "Masters of Science",
+            desiredRole: "Fullstack Software Developer",
+            skills: ["Java", "Spring Framework", "Angular", "Hibernate"],
+            height: "5.8",
+            weight: "70",
+            address: { "street": "1234", "city": "Hyderabad", "state": "Telangana", "country": "India" },
+            picture: "https://upload.wikimedia.org/wikipedia/commons/9/90/PM_Modi_2015.jpg",
+            hobbies: [{ "type": "sport", "name": "cricket" }, { "type": "activity", "name": "reading" }]
+        }
+        $( document ).ready(function() {
+        document.getElementById("titleid").innerHTML = ob.name;
+        document.getElementById("desiredrole").innerHTML = ob.desiredRole || "Not Provided";
+        document.getElementById("education").innerHTML = ob.education || "Not Provided";
+        var str = '<ul>'
+
+        ob.skills.forEach(function (item) {
+            str += '<li>' + item + '</li>';
+        });
+
+        str += '</ul>';
+        document.getElementById("skills").innerHTML = str;
+        document.getElementById("picture").innerHTML =`<img src=${ob.picture} alt="picture" width="200" height="200">`;
+        document.getElementById("hobbies").innerHTML =ob.hobbies[0].name;
+    })
+    </script>
+    <title id="titleid"></title>
+</head>
+
+<body>
+    <h1 style="text-align:center">Resume</h1>
+    <div id="a">
+        <table>
+            <tr>
+                <th colspan="2" style="text-align:center">Profile</th>
+            </tr>
+            <tr>
+                <th id="picture" colspan="2" style="text-align:center"></th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>Pavan Varma</td>
+            </tr>
+            <tr>
+                <th>Education</th>
+                <td id="education">  </td>
+            </tr>
+            <tr>
+                <th>Desired Role</th>
+                <td id="desiredrole"></td>
+            </tr>
+            <tr>
+                <th>Skills</th>
+                <td id="skills">
+                </td>
+            </tr>
+            <tr>
+                <th>hobbies</th>
+                <td id="hobbies">
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
