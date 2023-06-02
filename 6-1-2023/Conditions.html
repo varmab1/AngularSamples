@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Conditions</title>
+        
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>
+                    <label >Environment</label>
+                </td>
+                <td>
+                    <select name="envs" id="envs" onchange="condition()">
+                    <option value="dev">Dev</option>
+                    <option value="test">Test</option>
+                    <option value="stage">Stage</option>
+                    <option value="prod">Prod</option>
+                    <option value="other">Other</option>
+                    </select>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                    <label>Amount</label>
+                </td>
+                <td>
+                    <input type="number" min="0" name="amount" onchange="condition()" id="amount">
+                    </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Ans</label>
+                </td>
+                <td>
+                    <p id="ans"></p>
+                    </td>
+            </tr>
+        </table>
+        <script>
+           var env={
+            "dev":0.1,
+            "test":0.2,
+            "stage":0.3,
+            "prod":0.05,
+           }
+           function condition() {
+            var env = document.getElementById("envs").value;
+            var amount = document.getElementById("amount").valueAsNumber;
+            console.log(env,amount)
+            amount= amount ?? ""
+            if(typeof amount == 'number'){
+                if (amount>=0){
+                    switch(env){
+                        case "dev":
+                            document.getElementById("ans").innerHTML = amount+amount*0.1;
+                            break;
+                        case "test":
+                            document.getElementById("ans").innerHTML = amount+amount*0.2;
+                            break;
+                        case "stage":
+                            document.getElementById("ans").innerHTML= amount+amount*0.3;
+                            break;
+                        case "prod":
+                            document.getElementById("ans").innerHTML = amount+amount*0.05;
+                            break;
+                        default:
+                            document.getElementById("ans").innerHTML = amount;
+                            break;
+                    }
+                }else{
+                    document.getElementById("ans").innerHTML = "Required values are missing/incorrect";
+                }
+            }else if(amount==""){
+                document.getElementById("ans").innerHTML = "Required values are missing/incorrect";
+            }
+
+        } 
+        </script>
+    </body>
+</html>
