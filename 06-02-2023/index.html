@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>this keyword</title>
+        
+    </head>
+    <body>
+        <table>
+                <tr>
+                <td>
+                    <label>Hobby</label>
+                </td>
+                <td>
+                    <input type="text" name="Hobby" id="Hobby">
+                    </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="ob.addHobby(document.getElementById('Hobby').value)">Add Hobby</button>
+                </td>
+                <td>
+                    <button onclick="ob.deleteHobby(document.getElementById('Hobby').value)">Remove Hobby</button>
+                    </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="ob.returnHobbies()">Display Hobbies</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <p id="display"></p>
+                </td>
+            </tr>
+        </table>
+        <script>  
+        var ob = {
+            name: "Pavan Varma",
+            education: "Masters of Science",
+            desiredRole: "Fullstack Software Developer",
+            skills: ["Java", "Spring Framework", "Angular", "Hibernate"],
+            height: "5.8",
+            weight: "70",
+            address: { "street": "1234", "city": "Hyderabad", "state": "Telangana", "country": "India" },
+            picture: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png",
+            hobbies: ["Cricket","Reading","Skating","Watching movies"],
+            returnHobbies(){
+                document.getElementById("display").innerHTML = this.hobbies;
+
+            },
+            deleteHobby(name){
+                console.log(name)
+
+                this.hobbies = this.hobbies.filter(item => item !== name)
+                console.log(this.hobbies)
+                this.returnHobbies()
+
+            },
+            addHobby(name){
+                console.log(name)
+                if(!this.hobbies.includes(name)){
+                    this.hobbies.push(name)
+                    console.log(this.hobbies)
+                    this.returnHobbies()
+                }
+            }
+        }
+        
+        </script>
+    </body>
+</html>
