@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>Profile</title>
+</head>
+
+<body>
+    <form id='sampleform'>
+        <table>
+            <tr>
+                <td><label>First Name</label></td>
+                <td><input type="text" id="fn" name="firstname"></td>
+            </tr>
+            <tr>
+                <td><label>Last Name</label></td>
+                <td><input type="text" id="lb" name="lastname"></td>
+            </tr>
+            <tr>
+                <td><label>Date of Birth</label></td>
+                <td><input type="date" id="dob" name="dob"></td>
+            </tr>
+            <tr>
+                <td><label>Email</label></td>
+                <td><input type="email" id="email" name="email"></td>
+            </tr>
+            <tr>
+                <td><label>Phone Number</label></td>
+                <td><input type="text" id="pn" name="phonenumber"></td>
+            </tr>
+            <tr>
+                <td><label>Hobbies</label></td>
+                <td><input type="checkbox" name="hobbies" value="cricket" id="cricket_cb"> <label
+                        for="cricket_cb">Cricket</label><br>
+                    <input type="checkbox" name="hobbies" value="reading" id="reading_cb"> <label
+                        for="reading_cb">Reading</label><br>
+                    <input type="checkbox" name="hobbies" value="basketball" id="basketball_cb"> <label
+                        for="basketball_cb">Basket Ball</label><br>
+                    <input type="checkbox" name="hobbies" value="movies" id="movies_cb"> <label
+                        for="movies_cb">Movies</label><br>
+                </td>
+            </tr>
+            <tr colspan="2" style="align">
+                <td><button>Submit</button></td>
+            </tr>
+        </table>
+    </form>
+    <div id="display"></div>
+    <script>
+        const form = document.getElementById("sampleform")
+        form.addEventListener("submit", (event) => {
+            event.preventDefault()
+            const tables = document.querySelectorAll('table');
+            const table = tables[0]
+            var array = []
+            var checkboxes = document.querySelectorAll('input[type=checkbox][name=hobbies]:checked')
+            for (var i = 0; i < checkboxes.length; i++) {
+                array.push(checkboxes[i].value)
+            }
+            var divContent = "<br>";
+            Array.from(table.getElementsByTagName('input')).forEach((input) => {
+                if(input.name!="hobbies"){
+                console.log(input.id, input.value);
+                divContent += `<p>${input.value}</p>`
+                }
+            });
+            divContent += `<p>${array}</p>`
+            document.getElementById("display").innerHTML = divContent
+        })
+
+
+    </script>
+</body>
+
+</html>
