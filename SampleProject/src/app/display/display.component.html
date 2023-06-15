@@ -1,0 +1,10 @@
+  <table *ngIf="rows.length"> 
+    <tr>
+        <th>Name</th>
+        <th>Contact</th>
+    </tr>
+    <tr *ngFor="let item of rows">
+       <td>{{item.name}}</td>
+       <td>{{item.contact}}</td>
+    </tr>
+    </table>
