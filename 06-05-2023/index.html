@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Profile</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td><label>First Name</label></td>
+                <td><input type="text" id="fn"></td>
+            </tr>
+            <tr>
+                <td><label>Last Name</label></td>
+                <td><input type="text" id="lb"></td>
+            </tr>
+            <tr>
+                <td><label>Date of Birth</label></td>
+                <td><input type="date" id="dob"></td>
+            </tr>
+            <tr>
+                <td><label>Email</label></td>
+                <td><input type="email" id="email"></td>
+            </tr>
+            <tr>
+                <td><label>Phone Number</label></td>
+                <td><input type="text" id="pn"></td>
+            </tr>
+            <tr colspan="2" style="align">
+                <td><button  onclick="submit()">Submit</button></td>
+            </tr>
+        </table>
+        <div id="display"></div>
+        <script>
+            function submit(){
+            const tables = document.querySelectorAll('table');
+            const table = tables[0]
+            var divContent="<br>";
+            Array.from(table.getElementsByTagName('input')).forEach((input) => {
+            console.log(input.id,input.value);
+            divContent+=`<p>${input.value}</p>`
+            });
+            document.getElementById("display").innerHTML=divContent
+        }
+        </script>
+    </body>
+</html>

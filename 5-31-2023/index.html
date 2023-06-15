@@ -29,9 +29,11 @@
             height: "5.8",
             weight: "70",
             address: { "street": "1234", "city": "Hyderabad", "state": "Telangana", "country": "India" },
-            picture: "https://upload.wikimedia.org/wikipedia/commons/9/90/PM_Modi_2015.jpg",
+            picture: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png",
             hobbies: [{ "type": "sport", "name": "cricket" }, { "type": "activity", "name": "reading" }]
         }
+
+        //console.log(z)
         $( document ).ready(function() {
         document.getElementById("titleid").innerHTML = ob.name;
         document.getElementById("desiredrole").innerHTML = ob.desiredRole || "Not Provided";
@@ -44,8 +46,8 @@
 
         str += '</ul>';
         document.getElementById("skills").innerHTML = str;
-        document.getElementById("picture").innerHTML =`<img src=${ob.picture} alt="picture" width="200" height="200">`;
-        document.getElementById("hobbies").innerHTML =ob.hobbies[0].name;
+        document.getElementById("picture").innerHTML =`<img src=${ob.picture} alt="picture" style="border-radius: 50%;" width="200" height="200">`;
+        document.getElementById("hobbies").innerHTML =ob.hobbies[ob.hobbies.length-1].name;
     })
     </script>
     <title id="titleid"></title>
@@ -67,7 +69,7 @@
             </tr>
             <tr>
                 <th>Education</th>
-                <td id="education"></td>
+                <td id="education">  </td>
             </tr>
             <tr>
                 <th>Desired Role</th>
