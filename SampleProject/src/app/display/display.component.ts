@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-display',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DisplayComponent implements OnInit {
 
   rows:any[]= [];
+  // @Output() sendFunc = new EventEmitter<{}>;
   constructor() { }
 
   ngOnInit() {

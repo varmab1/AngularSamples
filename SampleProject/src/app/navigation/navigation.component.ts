@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { DisplayComponent } from '../display/display.component';
 @Component({
   selector: 'app-navigation',
@@ -7,12 +7,14 @@ import { DisplayComponent } from '../display/display.component';
 })
 export class NavigationComponent implements OnInit {
   text: String="login"
+  @Output() newHandleMethod = new EventEmitter<String>();
   constructor() { }
 
   ngOnInit() {
   }
   onsubmit(){
-    this.text= (this.text=="login")?"logut":"login";
+    // this.text= (this.text=="login")?"logut":"login";
+    this.newHandleMethod.emit("Logout");
   }
 
 }

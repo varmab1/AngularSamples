@@ -1,0 +1,76 @@
+<form *ngIf='signup' id="signup">
+  <table>
+    <tr>
+      <th>
+        First Name:
+      </th>
+      <td>
+        <input type="text" [(ngModel)]="userInfo.FirstName" name="first">
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Last Name:
+      </th>
+      <td>
+        <input type="text" [(ngModel)]="userInfo.LastName" name="last">
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Email:
+      </th>
+      <td>
+        <input type="email" [(ngModel)]="userInfo.email" name="email">
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Password:
+      </th>
+      <td>
+        <input type="password" [(ngModel)]="userInfo.password" name="password">
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Date of Birth
+      </th>
+      <td>
+        <input type="date" [(ngModel)]="userInfo.dateOfBirth" name="dob">
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Phone
+      </th>
+      <td>
+        <input type="text" [(ngModel)]="userInfo.phoneNumber" name="phone">
+      </td>
+    </tr>
+  </table>
+</form>
+<form *ngIf='login' id="login">
+  <table>
+    <tr>
+      <th>
+        Username:
+      </th>
+      <td>
+        <input type="text">
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Password:
+      </th>
+      <td>
+        <input type="password">
+      </td>
+    </tr>
+  </table>
+</form>
+<p>{{display}}</p>
+
+<button (click)="onSignUp()">SignUp</button>
+<button (click)="onLogIn()">LogIn</button>
